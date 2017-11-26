@@ -6,7 +6,7 @@ class AddData extends Component {
   state = {
     loadingData: false,
     loadedData: null,
-    name: '',
+    name: 'Shine 2017',
     url:
       'https://smash.gg/tournament/shine-2017/events/melee-singles/brackets?filter=%7B%22phaseId%22%3A146672%7D',
   };
@@ -34,8 +34,6 @@ class AddData extends Component {
         this.setState({
           loadingData: false,
           loadedData: {
-            characters: parsed.characters,
-            entrants: parsed.entrants,
             sets: parsed.sets,
           },
         });
@@ -90,11 +88,7 @@ class AddData extends Component {
                 This looks good, save it to the DB
               </button>
             </div>
-            <IntermediateResults
-              characters={loadedData.characters}
-              entrants={loadedData.entrants}
-              sets={loadedData.sets}
-            />
+            <IntermediateResults sets={loadedData.sets} />
           </section>
         )}
       </div>
